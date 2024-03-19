@@ -1,0 +1,23 @@
+{
+  "adult": false,
+  "backdrop_path": "/path.jpg",
+  "genres": [
+    {
+      "id": 1,
+      "name": "Action"
+    }
+  ],
+  "homepage": "https://google.com",
+  "id": 1,
+  "original_language": "en",
+  "original_name": "Original Name",
+  "overview": "Overview",
+  "popularity": 1.0,
+  "poster_path": "/path.jpg",
+  "last_air_date": "2020-05-05",
+  "status": "Status",
+  "tagline": "Tagline",
+  "name": "Name",
+  "vote_average": 1.0,
+  "vote_count": 1
+}

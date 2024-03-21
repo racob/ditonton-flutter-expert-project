@@ -1,4 +1,5 @@
 import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/common/http.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movie_detail_page.dart';
@@ -31,6 +32,8 @@ import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SecureHttp.setSslPinning();
   di.init();
   runApp(MyApp());
 }

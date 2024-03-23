@@ -12,7 +12,6 @@ class TvWatchlist extends StatefulWidget {
 }
 
 class _TvWatchlistState extends State<TvWatchlist> {
-
   @override
   void initState() {
     super.initState();

@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/tv.dart';
@@ -13,23 +14,35 @@ class FetchPopularTvs extends TvListEvent {}
 
 class FetchTopRatedTvs extends TvListEvent {}
 
-abstract class TvListState {}
+abstract class TvListState extends Equatable {}
 
-class isLoading extends TvListState {}
+class isLoading extends TvListState {
+  @override
+  List<Object> get props => [];
+}
 
 class isLoadedNowPlaying extends TvListState {
   final List<Tv> nowPlayingTvs;
   isLoadedNowPlaying(this.nowPlayingTvs);
+
+  @override
+  List<Object> get props => [];
 }
 
 class isLoadedPopular extends TvListState {
   final List<Tv> popularTvs;
   isLoadedPopular(this.popularTvs);
+
+  @override
+  List<Object> get props => [];
 }
 
 class isLoadedTopRated extends TvListState {
   final List<Tv> topRatedTvs;
   isLoadedTopRated(this.topRatedTvs);
+
+  @override
+  List<Object> get props => [];
 }
 
 
@@ -37,6 +50,9 @@ class isError extends TvListState {
   final String message;
 
   isError(this.message);
+
+  @override
+  List<Object> get props => [];
 }
 
 class TvListBloc extends Bloc<TvListEvent, TvListState> {

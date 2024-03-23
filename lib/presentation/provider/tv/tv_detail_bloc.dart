@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/tv.dart';
@@ -34,11 +35,17 @@ class LoadWatchlistStatus extends TvDetailEvent {
   LoadWatchlistStatus(this.id);
 }
 
-abstract class TvDetailState {}
+abstract class TvDetailState extends Equatable {}
 
-class isEmpty extends TvDetailState {}
+class isEmpty extends TvDetailState {
+  @override
+  List<Object> get props => [];
+}
 
-class isLoading extends TvDetailState {}
+class isLoading extends TvDetailState {
+  @override
+  List<Object> get props => [];
+}
 
 class isLoaded extends TvDetailState {
   final TvDetail tv;
@@ -46,24 +53,36 @@ class isLoaded extends TvDetailState {
   final bool isAddedToWatchlist;
 
   isLoaded(this.tv, this.recommendations, this.isAddedToWatchlist);
+
+  @override
+  List<Object> get props => [];
 }
 
 class isError extends TvDetailState {
   final String message;
 
   isError(this.message);
+
+  @override
+  List<Object> get props => [];
 }
 
 class WatchlistOperationSuccess extends TvDetailState {
   final String message;
 
   WatchlistOperationSuccess(this.message);
+
+  @override
+  List<Object> get props => [];
 }
 
 class WatchlistOperationFailure extends TvDetailState {
   final String message;
 
   WatchlistOperationFailure(this.message);
+
+  @override
+  List<Object> get props => [];
 }
 
 class TvDetailBloc extends Bloc<TvDetailEvent, TvDetailState> {

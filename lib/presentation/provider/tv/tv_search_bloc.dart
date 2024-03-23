@@ -1,23 +1,34 @@
 import 'package:ditonton/domain/entities/tv.dart';
 import 'package:ditonton/domain/usecases/tv/search_tvs.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-abstract class TvSearchState {}
+abstract class TvSearchState extends Equatable {}
 
-class isEmpty extends TvSearchState {}
+class isEmpty extends TvSearchState {
+  @override
+  List<Object> get props => [];
+}
 
-class isLoading extends TvSearchState {}
+class isLoading extends TvSearchState {
+  @override
+  List<Object> get props => [];
+}
 
 class isLoaded extends TvSearchState {
   final List<Tv> searchResult;
 
   isLoaded(this.searchResult);
+  @override
+  List<Object> get props => [];
 }
 
 class isError extends TvSearchState {
   final String message;
 
   isError(this.message);
+  @override
+  List<Object> get props => [];
 }
 
 abstract class TvSearchEvent {}

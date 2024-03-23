@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/tv.dart';
@@ -7,22 +8,34 @@ abstract class TopRatedTvsEvent {}
 
 class FetchTopRatedTvs extends TopRatedTvsEvent {}
 
-abstract class TopRatedTvsState {}
+abstract class TopRatedTvsState extends Equatable {}
 
-class isEmpty extends TopRatedTvsState {}
+class isEmpty extends TopRatedTvsState {
+  @override
+  List<Object> get props => [];
+}
 
-class isLoading extends TopRatedTvsState {}
+class isLoading extends TopRatedTvsState {
+  @override
+  List<Object> get props => [];
+}
 
 class isLoaded extends TopRatedTvsState {
   final List<Tv> tvs;
 
   isLoaded(this.tvs);
+
+  @override
+  List<Object> get props => [];
 }
 
 class isError extends TopRatedTvsState {
   final String message;
 
   isError(this.message);
+
+  @override
+  List<Object> get props => [];
 }
 
 class TopRatedTvsBloc extends Bloc<TopRatedTvsEvent, TopRatedTvsState> {

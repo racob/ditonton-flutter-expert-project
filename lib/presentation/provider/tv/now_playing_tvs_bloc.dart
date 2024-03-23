@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../domain/entities/tv.dart';
@@ -7,22 +8,34 @@ abstract class NowPlayingTvsEvent {}
 
 class FetchNowPlayingTvs extends NowPlayingTvsEvent {}
 
-abstract class NowPlayingTvsState {}
+abstract class NowPlayingTvsState extends Equatable {}
 
-class isEmpty extends NowPlayingTvsState {}
+class isEmpty extends NowPlayingTvsState {
+  @override
+  List<Object> get props => [];
+}
 
-class isLoading extends NowPlayingTvsState {}
+class isLoading extends NowPlayingTvsState {
+  @override
+  List<Object> get props => [];
+}
 
 class isLoaded extends NowPlayingTvsState {
   final List<Tv> tvs;
 
   isLoaded(this.tvs);
+
+  @override
+  List<Object> get props => [];
 }
 
 class isError extends NowPlayingTvsState {
   final String message;
 
   isError(this.message);
+
+  @override
+  List<Object> get props => [];
 }
 
 class NowPlayingTvsBloc extends Bloc<NowPlayingTvsEvent, NowPlayingTvsState> {

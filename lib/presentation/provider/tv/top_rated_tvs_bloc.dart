@@ -10,11 +10,6 @@ class FetchTopRatedTvs extends TopRatedTvsEvent {}
 
 abstract class TopRatedTvsState extends Equatable {}
 
-class isEmpty extends TopRatedTvsState {
-  @override
-  List<Object> get props => [];
-}
-
 class isLoading extends TopRatedTvsState {
   @override
   List<Object> get props => [];
@@ -41,7 +36,7 @@ class isError extends TopRatedTvsState {
 class TopRatedTvsBloc extends Bloc<TopRatedTvsEvent, TopRatedTvsState> {
   final GetTopRatedTvs getTopRatedTvs;
 
-  TopRatedTvsBloc(this.getTopRatedTvs) : super(isEmpty()) {
+  TopRatedTvsBloc(this.getTopRatedTvs) : super(isLoading()) {
     on<FetchTopRatedTvs>((event, emit) async {
       emit(isLoading());
       final result = await getTopRatedTvs.execute();

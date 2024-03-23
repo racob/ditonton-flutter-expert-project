@@ -37,11 +37,6 @@ class LoadWatchlistStatus extends TvDetailEvent {
 
 abstract class TvDetailState extends Equatable {}
 
-class isEmpty extends TvDetailState {
-  @override
-  List<Object> get props => [];
-}
-
 class isLoading extends TvDetailState {
   @override
   List<Object> get props => [];
@@ -101,7 +96,7 @@ class TvDetailBloc extends Bloc<TvDetailEvent, TvDetailState> {
     required this.getWatchListStatus,
     required this.saveWatchlist,
     required this.removeWatchlist,
-  }) : super(isEmpty()) {
+  }) : super(isLoading()) {
     on<FetchTvDetail>((event, emit) async {
       emit(isLoading());
 

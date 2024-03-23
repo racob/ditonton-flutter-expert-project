@@ -10,11 +10,6 @@ class FetchPopularTvs extends PopularTvsEvent {}
 
 abstract class PopularTvsState extends Equatable {}
 
-class isEmpty extends PopularTvsState {
-  @override
-  List<Object> get props => [];
-}
-
 class isLoading extends PopularTvsState {
   @override
   List<Object> get props => [];
@@ -41,7 +36,7 @@ class isError extends PopularTvsState {
 class PopularTvsBloc extends Bloc<PopularTvsEvent, PopularTvsState> {
   final GetPopularTvs getPopularTvs;
 
-  PopularTvsBloc(this.getPopularTvs) : super(isEmpty()) {
+  PopularTvsBloc(this.getPopularTvs) : super(isLoading()) {
     on<FetchPopularTvs>((event, emit) async {
       emit(isLoading());
       final result = await getPopularTvs.execute();

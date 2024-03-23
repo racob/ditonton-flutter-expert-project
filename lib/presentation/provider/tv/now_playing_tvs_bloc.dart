@@ -10,11 +10,6 @@ class FetchNowPlayingTvs extends NowPlayingTvsEvent {}
 
 abstract class NowPlayingTvsState extends Equatable {}
 
-class isEmpty extends NowPlayingTvsState {
-  @override
-  List<Object> get props => [];
-}
-
 class isLoading extends NowPlayingTvsState {
   @override
   List<Object> get props => [];
@@ -41,7 +36,7 @@ class isError extends NowPlayingTvsState {
 class NowPlayingTvsBloc extends Bloc<NowPlayingTvsEvent, NowPlayingTvsState> {
   final GetNowPlayingTvs getNowPlayingTvs;
 
-  NowPlayingTvsBloc(this.getNowPlayingTvs) : super(isEmpty()) {
+  NowPlayingTvsBloc(this.getNowPlayingTvs) : super(isLoading()) {
     on<FetchNowPlayingTvs>((event, emit) async {
       emit(isLoading());
       final result = await getNowPlayingTvs.execute();

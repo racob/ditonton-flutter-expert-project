@@ -75,6 +75,14 @@ class _HomeMoviePageState extends State<HomeMoviePage>
               leading: Icon(Icons.info_outline),
               title: Text('About'),
             ),
+            ListTile(
+              onTap: () {
+                throw Exception('Force crash triggered');
+              },
+              leading: Icon(Icons.error),
+              title: Text('Trigger force error'),
+              tileColor: Colors.deepOrange,
+            )
           ],
         ),
       ),

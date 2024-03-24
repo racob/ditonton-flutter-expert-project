@@ -1,3 +1,4 @@
+import 'package:ditonton/common/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,10 +12,21 @@ class TvWatchlist extends StatefulWidget {
   State<TvWatchlist> createState() => _TvWatchlistState();
 }
 
-class _TvWatchlistState extends State<TvWatchlist> {
+class _TvWatchlistState extends State<TvWatchlist> with RouteAware {
   @override
   void initState() {
     super.initState();
+    context.read<WatchlistTvBloc>().add(FetchWatchlistTvs());
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    routeObserver.subscribe(this, ModalRoute.of(context)!);
+  }
+
+  @override
+  void didPopNext() {
     context.read<WatchlistTvBloc>().add(FetchWatchlistTvs());
   }
 
@@ -45,5 +57,11 @@ class _TvWatchlistState extends State<TvWatchlist> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    routeObserver.unsubscribe(this);
+    super.dispose();
   }
 }

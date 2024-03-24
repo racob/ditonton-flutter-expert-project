@@ -814,10 +814,10 @@ class MockDatabaseHelper extends _i1.Mock implements _i23.DatabaseHelper {
       ) as _i7.Future<List<Map<String, dynamic>>>);
 }
 
-/// A class which mocks [Client].
+/// A class which mocks [BaseClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockHttpClient extends _i1.Mock implements _i5.Client {
+class MockHttpClient extends _i1.Mock implements _i5.BaseClient {
   MockHttpClient() {
     _i1.throwOnMissingStub(this);
   }

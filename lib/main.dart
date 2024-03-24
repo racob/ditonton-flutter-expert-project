@@ -1,6 +1,5 @@
 import 'package:ditonton/bloc_provided.dart';
 import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/http.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:ditonton/firebase_options.dart';
 import 'package:ditonton/injection.dart' as di;
@@ -31,7 +30,6 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SecureHttp.setSslPinning();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
